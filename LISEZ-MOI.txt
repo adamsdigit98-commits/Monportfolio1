@@ -1,0 +1,62 @@
+PORTFOLIO - ADAMA OUATTARA KOUADIO
+==================================
+
+Contenu du dossier
+- index.html                 : la page du site (OBLIGATOIRE sur GitHub)
+- images/                    : votre photo (OBLIGATOIRE sur GitHub)
+- LISEZ-MOI.txt              : ce mode d'emploi (facultatif)
+- script-google-sheets.txt   : le script pour Google Sheets (ne pas envoyer sur GitHub)
+
+
+COMMENT VOUS RECEVEZ LES INSCRIPTIONS
+-------------------------------------
+Chaque inscription vous arrive de 3 facons :
+  1. Par e-mail sur adamaouattara050@gmail.com   (automatique)
+  2. Dans un tableau Google Sheets                (apres reglage, voir partie B)
+  3. Sur WhatsApp au 07 07 73 75 13               (si la personne clique "Envoyer sur WhatsApp")
+
+
+A) ACTIVER LA RECEPTION PAR E-MAIL (une seule fois)
+---------------------------------------------------
+1. Une fois le site en ligne sur GitHub, faites vous-meme une inscription test.
+2. Vous recevez un e-mail de "FormSubmit" dans Gmail (regardez aussi dans Spam / Promotions).
+3. Cliquez sur le bouton "Activate Form" dans cet e-mail.
+4. C'est fait : toutes les inscriptions suivantes arriveront dans votre Gmail.
+
+
+B) ACTIVER LE TABLEAU GOOGLE SHEETS (une seule fois, 5 minutes)
+---------------------------------------------------------------
+1. Allez sur sheets.google.com (connecte a adamaouattara050@gmail.com)
+   et creez une feuille vide. Nommez-la "Inscriptions portfolio".
+2. Dans le menu : Extensions > Apps Script.
+3. Effacez tout le texte deja present, puis collez TOUT le contenu
+   du fichier script-google-sheets.txt. Cliquez sur l'icone disquette (Enregistrer).
+4. En haut a droite : Deployer > Nouveau deploiement.
+   - Cliquez sur la roue dentee a cote de "Selectionner le type" > "Application Web".
+   - Executer en tant que : Moi
+   - Qui a acces : Tout le monde
+   - Cliquez sur Deployer.
+5. Google demande une autorisation : cliquez Autoriser l'acces, choisissez votre compte.
+   Si un ecran "Google n'a pas valide cette application" apparait :
+   cliquez "Parametres avances" puis "Acceder a ... (non securise)" puis Autoriser.
+   (C'est normal : c'est votre propre script.)
+6. Copiez l'adresse "URL de l'application Web" (elle commence par https://script.google.com/macros/s/...).
+7. Ouvrez index.html dans Visual Studio Code, cherchez la ligne :
+       googleSheet: ""
+   et collez l'adresse entre les guillemets, par exemple :
+       googleSheet: "https://script.google.com/macros/s/XXXXXXXX/exec"
+   Enregistrez.
+8. Renvoyez index.html sur GitHub (Add file > Upload files, puis Commit changes).
+9. Faites une inscription test : une ligne apparait dans l'onglet "Inscriptions" de votre feuille.
+
+
+C) METTRE LE SITE EN LIGNE AVEC GITHUB PAGES
+--------------------------------------------
+a. Sur github.com, creez un depot (repository) PUBLIC, par exemple "portfolio".
+b. Cliquez "uploading an existing file" et glissez index.html ET le dossier images.
+   index.html doit etre a la racine du depot (pas dans un sous-dossier).
+c. Cliquez "Commit changes".
+d. Settings > Pages. Branch : "main" et "/ (root)", puis Save.
+e. Apres 1 a 2 minutes, votre lien apparait : https://VOTRE-NOM.github.io/portfolio/
+
+Modifier vos numeros ou votre e-mail : dans index.html, cherchez "const CONTACT".

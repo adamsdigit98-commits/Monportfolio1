@@ -1,0 +1,25 @@
+/* ==========================================================
+   SCRIPT GOOGLE SHEETS - Inscriptions du portfolio
+   Copiez TOUT ce texte dans Extensions > Apps Script
+   ========================================================== */
+function doPost(e) {
+  var classeur = SpreadsheetApp.getActiveSpreadsheet();
+  var feuille = classeur.getSheetByName("Inscriptions") || classeur.insertSheet("Inscriptions");
+  if (feuille.getLastRow() === 0) {
+    feuille.appendRow(["Date", "Nom et prénom", "Téléphone", "E-mail", "Formation", "Format", "Message"]);
+    feuille.getRange(1, 1, 1, 7).setFontWeight("bold");
+    feuille.setFrozenRows(1);
+  }
+  var p = e.parameter;
+  feuille.appendRow([
+    new Date(),
+    p.nom || "",
+    "'" + (p.tel || ""),
+    p.email || "",
+    p.formation || "",
+    p.mode || "",
+    p.message || ""
+  ]);
+  return ContentService.createTextOutput(JSON.stringify({ ok: true }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
